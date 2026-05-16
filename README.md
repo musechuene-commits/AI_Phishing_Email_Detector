@@ -1,119 +1,184 @@
-# AI-Powered Phishing Email Detector
+# 🛡️ AI-Powered Phishing Email Detector
 
 ## Overview
 
-AI-Powered Phishing Email Detector is a Python-based cybersecurity tool designed to analyze email text and identify potential phishing attempts.
+AI-Powered Phishing Email Detector is a cybersecurity project developed in Python to analyze email content and identify potential phishing attacks using both rule-based detection and machine learning classification.
 
-The project uses rule-based threat detection to inspect suspicious keywords, URLs, insecure links, and social engineering indicators. It then generates a threat score and provides a clear security verdict.
+The application scans email text for suspicious phishing indicators such as:
+- Social engineering language
+- Urgent security warnings
+- Suspicious URLs
+- Unsafe domains
+- Password reset scams
+- Fake banking notifications
 
-This project simulates how a basic SOC or security support tool can assist analysts in identifying suspicious email content.
+The project combines:
+- Rule-based threat analysis
+- AI / Machine Learning phishing classification
+- Streamlit web dashboard visualization
 
----
-
-## Key Features
-
-- Detects phishing-related keywords
-- Identifies suspicious URLs
-- Flags insecure HTTP links
-- Detects suspicious top-level domains
-- Generates a phishing threat score
-- Provides a clear verdict: Low Risk, Suspicious, or High Risk Phishing
-- Displays reasons for the detection result
-- Beginner-friendly cybersecurity automation project
+This project simulates a lightweight SOC-style phishing detection tool used in cybersecurity environments.
 
 ---
 
-## Technologies Used
+# 🚀 Features
+
+## Rule-Based Detection
+- Phishing keyword detection
+- URL analysis
+- Suspicious domain detection
+- HTTP link detection
+- Threat scoring system
+- Detection reasoning output
+
+## AI / Machine Learning Detection
+- Email classification using Scikit-learn
+- NLP-based text vectorization
+- Naive Bayes phishing classifier
+- AI confidence percentage
+
+## Web Dashboard
+- Streamlit interactive dashboard
+- Real-time phishing scanning
+- Threat score visualization
+- AI prediction display
+- User-friendly interface
+
+---
+
+# 🛠️ Technologies Used
 
 - Python
+- Streamlit
+- Pandas
+- Scikit-learn
+- Machine Learning
+- Natural Language Processing (NLP)
 - Regular Expressions
-- Threat Scoring Logic
-- Cybersecurity Detection Rules
 
 ---
 
-## Project Structure
+# 📂 Project Structure
 
 ```text
 AI_Phishing_Email_Detector/
 │
 ├── app.py
+├── dashboard.py
 ├── detector.py
+├── ai_detector.py
+├── train_model.py
+├── test_ai.py
+├── phishing_model.pkl
 ├── phishing_samples.txt
 ├── requirements.txt
 ├── README.md
 └── screenshots/
 
-How It Works
+⚙️ How It Works
+Rule-Based Engine
 
-The detector checks an email message for common phishing indicators such as:
+The rule-based detection engine scans email content for:
 
-Urgent language
-Account suspension warnings
-Password reset requests
-Fake banking messages
-Suspicious links
-Insecure HTTP URLs
-Suspicious domains such as .xyz, .tk, .top, and .click
+Suspicious phishing phrases
+Unsafe URLs
+Suspicious top-level domains
+Insecure HTTP links
+Social engineering indicators
 
-Each indicator increases the threat score. Based on the final score, the tool returns a risk verdict.
+Each detected indicator increases the overall phishing threat score.
 
-Example Phishing Email
-Urgent! Your bank account has been suspended. Click here to verify your account immediately: http://secure-bank-login.xyz
+AI / Machine Learning Engine
 
-Example Output
-Threat Score: 100%
-Verdict: HIGH RISK PHISHING
+The AI engine uses:
 
-Reasons:
-- Suspicious keyword detected: 'urgent'
-- Suspicious keyword detected: 'bank account'
-- Suspicious keyword detected: 'click here'
-- URL detected: http://secure-bank-login.xyz
-- Suspicious domain detected: .xyz
-- Insecure HTTP link detected
+CountVectorizer
+Multinomial Naive Bayes
 
-How to Run
+to classify emails as:
+
+phishing
+safe
+
+The model generates:
+
+AI prediction
+confidence percentage
+
+based on trained phishing and legitimate email samples.
+
+▶️ Installation
 
 Clone the repository:
 
 git clone https://github.com/musechuene-commits/Syntecxhub_AI_Phishing_Email_Detector.git
 
-Open the project folder:
+Move into the project directory:
 
-cd AI_Phishing_Email_Detector
+cd Syntecxhub_AI_Phishing_Email_Detector
 
-Run the application:
+Install dependencies:
 
+pip install -r requirements.txt
+▶️ Running the Application
+Run Terminal Version
 python app.py
+Run AI Model Training
+python train_model.py
+Run AI Testing Script
+python test_ai.py
+Run Streamlit Dashboard
+streamlit run dashboard.py
+🧪 Example Phishing Email
+Urgent! Your bank account has been suspended. Click here to verify your account immediately: http://secure-bank-login.xyz
+📊 Example Output
+Rule-Based Detection
+Threat Score: 100%
+Verdict: HIGH RISK PHISHING
+AI Detection
+Prediction: phishing
+Confidence: 97%
+📸 Screenshots
 
-Learning Outcomes
+Add screenshots inside the screenshots/ folder:
+
+Dashboard homepage
+High-risk phishing detection
+Legitimate email detection
+AI confidence score
+Threat analysis results
+🎯 Learning Outcomes
 
 This project demonstrates practical understanding of:
 
-Phishing detection
-Email threat analysis
-Python scripting
+Cybersecurity threat detection
+Phishing analysis
 Security automation
-URL inspection
-Threat scoring
+Python development
+Machine learning fundamentals
+NLP basics
+Streamlit dashboard development
 SOC-style investigation logic
+🔮 Future Improvements
 
-Future Improvements
+Planned upgrades include:
 
-Planned improvements include:
-
-Machine learning phishing classification
-Streamlit web dashboard
+Real phishing datasets
 Email file upload support
+URL reputation checking
+VirusTotal API integration
 CSV logging
-AI confidence score
-Dataset-based model training
-Disclaimer
+SQLite database integration
+Dark mode dashboard
+Admin analytics panel
+Live email monitoring
+⚠️ Disclaimer
 
-This project is for educational and cybersecurity learning purposes only. It should only be used in authorized environments.
+This project is intended for educational and authorized cybersecurity learning purposes only.
 
-Author
+👨‍💻 Author
 
 Musa Chuene
-GitHub: musechuene-commits
+
+GitHub: https://github.com/musechuene-commits
+LinkedIn: https://linkedin.com/in/musa-chuene-57a4461a8
