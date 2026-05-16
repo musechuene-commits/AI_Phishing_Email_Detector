@@ -1,0 +1,30 @@
+
+PHISHING SAMPLE 1:
+Urgent! Your bank account has been suspended. Click here to verify your account immediately: http://secure-bank-login.xyz
+
+PHISHING SAMPLE 2:
+Security Alert: Unauthorized access detected on your account. Login immediately to confirm your identity: http://account-verify-login.tk
+
+PHISHING SAMPLE 3:
+Congratulations! You have won a prize. Claim your prize now by clicking this link: http://free-gift-reward.click
+
+PHISHING SAMPLE 4:
+Your password expired. Reset your password immediately to avoid account suspension: http://password-reset-support.top
+
+PHISHING SAMPLE 5:
+Limited time offer! Update your payment details now to prevent service interruption: http://billing-update-service.xyz
+
+LEGITIMATE SAMPLE 1:
+Hi Musa, please find attached the meeting notes from today’s IT support discussion. Let me know if you need any changes.
+
+LEGITIMATE SAMPLE 2:
+Dear user, your monthly Microsoft 365 invoice is available in the admin portal. Please log in through the official company website.
+
+LEGITIMATE SAMPLE 3:
+Hello team, the scheduled network maintenance will take place on Friday from 18:00 to 20:00. No action is required.
+
+LEGITIMATE SAMPLE 4:
+Your support ticket has been updated. The technician has added troubleshooting notes and will follow up tomorrow.
+
+LEGITIMATE SAMPLE 5:
+Good morning, please remember to submit your weekly timesheet before close of business today.
