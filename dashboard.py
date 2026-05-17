@@ -11,20 +11,35 @@ st.set_page_config(
 st.title("🛡️ AI-Powered Phishing Email Detector")
 
 st.write(
-    "Analyze email text using rule-based phishing detection "
+    "Analyze emails using rule-based phishing detection "
     "and machine learning classification."
 )
 
+# Manual Email Input
 email_text = st.text_area(
     "Paste email or message below:",
     height=220,
     placeholder="Example: Urgent! Verify your bank account immediately..."
 )
 
+# File Upload
+uploaded_file = st.file_uploader(
+    "Or upload a .txt email file",
+    type=["txt"]
+)
+
+# Read uploaded file
+if uploaded_file is not None:
+    email_text = uploaded_file.read().decode("utf-8")
+
+    st.subheader("Uploaded Email Content")
+    st.code(email_text)
+
+# Scan Button
 if st.button("Scan Email"):
 
     if email_text.strip() == "":
-        st.warning("Please paste email content before scanning.")
+        st.warning("Please paste email content or upload a file.")
 
     else:
 
@@ -36,7 +51,8 @@ if st.button("Scan Email"):
 
         st.divider()
 
-        st.header("Rule-Based Detection")
+        # Rule-Based Results
+        st.header("🔍 Rule-Based Detection")
 
         st.metric(
             "Threat Score",
@@ -62,7 +78,8 @@ if st.button("Scan Email"):
 
         st.divider()
 
-        st.header("AI / Machine Learning Detection")
+        # AI Results
+        st.header("🤖 AI / Machine Learning Detection")
 
         prediction = ai_result["prediction"]
         confidence = ai_result["confidence"]
