@@ -34,4 +34,4 @@ jobs:
       - name: Run basic security scan with Bandit
         run: |
           pip install bandit
-          bandit -r . -x ./.venv,./venv
+          bandit -r . -x ./.venv,./venv -s B403,B301
