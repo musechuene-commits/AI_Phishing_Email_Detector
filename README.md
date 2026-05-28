@@ -234,34 +234,20 @@ Open browser:
 ```text
 http://localhost:8501
 ```
-
----
-
 # 📸 Screenshots
 
-## Dashboard Interface
+## Dashboard
 
-_Add screenshot here_
-
----
+![Dashboard](screenshots/dashboard.png)
 
 ## Safe Email Detection
 
-_Add screenshot here_
+![Safe Scan](screenshots/safe_scan.png)
 
----
+## Phishing Detection
 
-## Phishing Email Detection
+![Phishing Scan](screenshots/phishing_scan.png)
 
-_Add screenshot here_
-
----
-
-## Uploaded Email Scan
-
-_Add screenshot here_
-
----
 
 # 🔄 CI/CD Pipeline
 
