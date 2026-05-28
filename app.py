@@ -1,22 +1,44 @@
+import streamlit as st
 from detector import detect_phishing
 
-print("=" * 60)
-print("AI-Powered Phishing Email Detector")
-print("=" * 60)
+st.set_page_config(
+    page_title="AI Phishing Email Detector",
+    page_icon="🛡️",
+    layout="centered"
+)
 
-email_text = input("\nPaste the email/message you want to scan:\n\n")
+st.title("🛡️ AI-Powered Phishing Email Detector")
 
-result = detect_phishing(email_text)
+st.markdown("""
+Analyze suspicious emails and detect potential phishing attacks using
+rule-based analysis and machine learning.
+""")
 
-print("\n" + "=" * 60)
-print("SCAN RESULT")
-print("=" * 60)
-print(f"Threat Score: {result['score']}%")
-print(f"Verdict: {result['verdict']}")
+email_text = st.text_area(
+    "Paste suspicious email content below:",
+    height=250
+)
 
-print("\nReasons:")
-if result["reasons"]:
-    for reason in result["reasons"]:
-        print(f"- {reason}")
-else:
-    print("- No strong phishing indicators detected.")
+if st.button("Scan Email"):
+
+    if email_text.strip() == "":
+        st.warning("Please paste an email message first.")
+    else:
+
+        result = detect_phishing(email_text)
+
+        if result["prediction"] == "Phishing":
+            st.error("⚠️ Potential Phishing Email Detected")
+        else:
+            st.success("✅ Email Appears Safe")
+
+        st.subheader("Detection Details")
+
+        st.write(f"**Prediction:** {result['prediction']}")
+        st.write(f"**Threat Score:** {result['threat_score']}")
+        st.write(f"**AI Confidence:** {result['confidence']}%")
+
+        st.subheader("Reasons")
+
+        for reason in result["reasons"]:
+            st.write(f"- {reason}")
