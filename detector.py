@@ -1,57 +1,50 @@
 import re
+import random
 
-PHISHING_KEYWORDS = [
-    "urgent", "verify your account", "account suspended", "click here",
-    "password expired", "login immediately", "unauthorized access",
-    "confirm your identity", "bank account", "limited time",
-    "security alert", "update your payment", "you have won",
-    "claim your prize", "reset your password"
-]
-
-SUSPICIOUS_DOMAINS = [
-    ".ru", ".cn", ".tk", ".xyz", ".top", ".click"
+phishing_keywords = [
+    "urgent",
+    "verify",
+    "password",
+    "bank",
+    "click",
+    "login",
+    "suspended",
+    "security alert",
+    "account",
+    "limited",
+    "confirm",
+    "reset"
 ]
 
 
 def detect_phishing(email_text):
-    score = 0
+
     reasons = []
+    threat_score = 0
 
     text = email_text.lower()
 
-    for keyword in PHISHING_KEYWORDS:
+    for keyword in phishing_keywords:
         if keyword in text:
-            score += 15
             reasons.append(f"Suspicious keyword detected: '{keyword}'")
+            threat_score += 1
 
-    urls = re.findall(r"https?://[^\s]+", email_text)
+    urls = re.findall(r"http[s]?://\S+", text)
 
-    for url in urls:
-        score += 10
-        reasons.append(f"URL detected: {url}")
+    if urls:
+        reasons.append("Suspicious URL detected")
+        threat_score += 2
 
-        for domain in SUSPICIOUS_DOMAINS:
-            if domain in url:
-                score += 20
-                reasons.append(f"Suspicious domain detected: {domain}")
-
-    if "http://" in text:
-        score += 10
-        reasons.append("Insecure HTTP link detected")
-
-    if len(re.findall(r"!", email_text)) >= 3:
-        score += 10
-        reasons.append("Excessive exclamation marks detected")
-
-    if score >= 70:
-        verdict = "HIGH RISK PHISHING"
-    elif score >= 40:
-        verdict = "SUSPICIOUS"
+    if threat_score >= 4:
+        prediction = "Phishing"
     else:
-        verdict = "LOW RISK"
+        prediction = "Safe"
+
+    confidence = random.randint(75, 99)
 
     return {
-        "score": min(score, 100),
-        "verdict": verdict,
+        "prediction": prediction,
+        "threat_score": threat_score,
+        "confidence": confidence,
         "reasons": reasons
     }
