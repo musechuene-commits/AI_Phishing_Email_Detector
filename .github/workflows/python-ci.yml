@@ -31,7 +31,17 @@ jobs:
         run: |
           python -m compileall .
 
+      - name: Run tests with pytest
+        run: |
+          pytest
+
+      - name: Run code quality check with flake8
+        run: |
+          flake8 . --exclude=.venv,venv,__pycache__ --max-line-length=120
+
       - name: Run basic security scan with Bandit
         run: |
           pip install bandit
           bandit -r . -x ./.venv,./venv -s B403,B301
+                - name: Run Gitleaks secret scan
+        uses: gitleaks/gitleaks-action@v2

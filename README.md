@@ -1,6 +1,14 @@
 # 🛡️ AI-Powered Phishing Email Detector
 
-## 📌 Overview
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![Machine Learning](https://img.shields.io/badge/Machine-Learning-green)
+![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Project-orange)
+![GitHub Actions](https://github.com/musechuene-commits/AI_Phishing_Email_Detector/actions/workflows/python-ci.yml/badge.svg)
+
+---
+
+# 📌 Overview
 
 AI-Powered Phishing Email Detector is a cybersecurity project developed in Python to analyze email content and identify potential phishing attacks using both rule-based detection and machine learning classification.
 
@@ -8,7 +16,7 @@ The application scans email text for suspicious phishing indicators such as:
 
 - Social engineering language
 - Urgent security warnings
-- Suspicious URL
+- Suspicious URLs
 - Unsafe domains
 - Password reset scams
 - Fake banking notifications
@@ -18,8 +26,10 @@ The project combines:
 - Rule-based threat analysis
 - AI / Machine Learning phishing classification
 - Streamlit web dashboard visualization
+- CI/CD automation with GitHub Actions
+- Automated security scanning
 
-This project simulates a lightweight SOC-style phishing detection tool used in cybersecurity environments.
+This project simulates a lightweight SOC-style phishing detection tool used in cybersecurity and DevSecOps environments.
 
 ---
 
@@ -36,34 +46,50 @@ This project simulates a lightweight SOC-style phishing detection tool used in c
 
 ---
 
-## 🤖 AI / Machine Learning Detection
+## 🤖 Machine Learning Classification
 
-- Email classification using Scikit-learn
-- NLP-based text vectorization
-- Naive Bayes phishing classifier
-- AI confidence percentage
+- Natural Language Processing (NLP)
+- Scikit-learn integration
+- Naive Bayes classification
+- AI confidence scoring
+- Trained phishing dataset model
 
 ---
 
-## 🌐 Web Dashboard
+## 📊 Streamlit Dashboard
 
-- Streamlit interactive dashboard
-- Real-time phishing scanning
-- Threat score visualization
-- AI prediction display
-- User-friendly interface
+- Interactive web interface
+- Real-time phishing analysis
+- Threat visualization
+- Confidence score display
+- User-friendly scanning workflow
+
+---
+
+## ⚙️ DevOps & DevSecOps Features
+
+- GitHub Actions CI/CD pipeline
+- Automated Python syntax validation
+- Automated testing with pytest
+- Code quality scanning using flake8
+- Security scanning using Bandit
+- Docker container support
 
 ---
 
 # 🛠️ Technologies Used
 
-- Python
-- Streamlit
-- Pandas
-- Scikit-learn
-- Machine Learning
-- Natural Language Processing (NLP)
-- Regular Expressions
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Web application dashboard |
+| Scikit-learn | Machine learning classification |
+| Pandas | Data handling |
+| GitHub Actions | CI/CD automation |
+| Pytest | Automated testing |
+| Flake8 | Code quality scanning |
+| Bandit | Security scanning |
+| Docker | Containerization |
 
 ---
 
@@ -72,73 +98,66 @@ This project simulates a lightweight SOC-style phishing detection tool used in c
 ```text
 AI_Phishing_Email_Detector/
 │
+├── .github/
+│   └── workflows/
+│       └── python-ci.yml
+│
+├── screenshots/
+│
+├── tests/
+│   └── test_detector.py
+│
 ├── app.py
-├── dashboard.py
-├── detector.py
 ├── ai_detector.py
+├── detector.py
 ├── train_model.py
-├── test_ai.py
 ├── phishing_model.pkl
-├── phishing_samples.txt
 ├── requirements.txt
+├── Dockerfile
+├── .dockerignore
 ├── README.md
-└── screenshots/
+└── dataset.csv
 ```
 
 ---
 
-# ⚙️ How It Works
+# ⚙️ Installation
 
-## 🔍 Rule-Based Engine
-
-The rule-based detection engine scans email content for:
-
-- Suspicious phishing phrases
-- Unsafe URLs
-- Suspicious top-level domains
-- Insecure HTTP links
-- Social engineering indicators
-
-Each detected indicator increases the overall phishing threat score.
-
----
-
-## 🤖 AI / Machine Learning Engine
-
-The AI engine uses:
-
-- CountVectorizer
-- Multinomial Naive Bayes
-
-to classify emails as:
-
-- phishing
-- safe
-
-The model generates:
-
-- AI prediction
-- confidence percentage
-
-based on trained phishing and legitimate email samples.
-
----
-
-# ▶️ Installation
-
-Clone the repository:
+## 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/musechuene-commits/AI_Phishing_Email_Detector.git
 ```
 
-Move into the project directory:
+---
+
+## 2️⃣ Navigate Into Project
 
 ```bash
 cd AI_Phishing_Email_Detector
 ```
 
-Install dependencies:
+---
+
+## 3️⃣ Create Virtual Environment
+
+### Windows
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Linux / Mac
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+## 4️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -146,150 +165,133 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Running the Application
-
-## Run Terminal Version
+# ▶️ Run Application
 
 ```bash
-python app.py
+streamlit run app.py
 ```
 
----
-
-## Run AI Model Training
-
-```bash
-python train_model.py
-```
-
----
-
-## Run AI Testing Script
-
-```bash
-python test_ai.py
-```
-
----
-
-## Run Streamlit Dashboard
-
-```bash
-streamlit run dashboard.py
-```
-
----
-
-# 🧪 Example Phishing Email
+Open browser:
 
 ```text
-Urgent! Your bank account has been suspended. Click here to verify your account immediately: http://secure-bank-login.xyz
+http://localhost:8501
 ```
 
 ---
 
-# 📊 Example Output
+# 🧪 Automated Testing
 
-## Rule-Based Detection
+Run pytest tests:
 
-```text
-Threat Score: 100%
-Verdict: HIGH RISK PHISHING
+```bash
+pytest
 ```
 
 ---
 
-## AI Detection
+# 🔎 Code Quality Scanning
+
+Run flake8 scan:
+
+```bash
+flake8 . --exclude=.venv,venv,__pycache__ --max-line-length=120
+```
+
+---
+
+# 🔐 Security Scanning
+
+Run Bandit security scan:
+
+```bash
+bandit -r .
+```
+
+---
+
+# 🐳 Docker Setup
+
+## Build Docker Image
+
+```bash
+docker build -t phishing-detector .
+```
+
+---
+
+## Run Docker Container
+
+```bash
+docker run -p 8501:8501 phishing-detector
+```
+
+---
+
+## Access Application
+
+Open browser:
 
 ```text
-Prediction: phishing
-Confidence: 97%
+http://localhost:8501
 ```
 
 ---
 
 # 📸 Screenshots
 
-## Email File Upload Feature
+## Dashboard Interface
 
-![File Upload Feature](screenshots/file-upload-feature.png)
-
----
-
-## Uploaded Phishing Email Scan
-
-![Uploaded Phishing Scan](screenshots/uploaded-phishing-scan-result.png)
-
----
-
-## Uploaded Safe Email Scan
-
-![Uploaded Safe Email](screenshots/uploaded-safe-email-result.png)
-
-## Streamlit Dashboard
-
-![Dashboard Home](screenshots/streamlit-dashboard-home.png)
-
----
-
-## High-Risk Phishing Detection
-
-![High Risk Detection](screenshots/dashboard-high-risk-result.png)
+_Add screenshot here_
 
 ---
 
 ## Safe Email Detection
 
-![Safe Email Detection](screenshots/dashboard-safe-email-result.png)
+_Add screenshot here_
 
 ---
 
-## AI Confidence Score
+## Phishing Email Detection
 
-![AI Confidence](screenshots/ai-confidence-score.png)
-
----
-
-## Machine Learning Detection
-
-![ML Detection](screenshots/machine-learning-phishing-detection.png)
+_Add screenshot here_
 
 ---
 
-# 🎯 Learning Outcomes
+## Uploaded Email Scan
 
-This project demonstrates practical understanding of:
-
-- Cybersecurity threat detection
-- Phishing analysis
-- Security automation
-- Python development
-- Machine learning fundamentals
-- NLP basics
-- Streamlit dashboard development
-- SOC-style investigation logic
+_Add screenshot here_
 
 ---
 
-# 🔮 Future Improvements
+# 🔄 CI/CD Pipeline
 
-Planned upgrades include:
+This project includes a GitHub Actions CI/CD pipeline that automatically:
 
-- Real phishing datasets
-- Email file upload support
-- URL reputation checking
-- VirusTotal API integration
-- CSV logging
-- SQLite database integration
-- Dark mode dashboard
-- Admin analytics panel
-- Live email monitoring
+- Installs dependencies
+- Validates Python syntax
+- Runs automated tests
+- Performs code quality checks
+- Executes security scanning
+
+Workflow file:
+
+```text
+.github/workflows/python-ci.yml
+```
 
 ---
 
-# ⚠️ Disclaimer
+# 🎯 Future Improvements
 
-This project is intended for educational and authorized cybersecurity learning purposes only.
+- Email attachment analysis
+- OCR scanning for phishing PDFs
+- Real-time email API integration
+- Advanced NLP models
+- Threat intelligence integration
+- SIEM integration
+- Azure deployment
+- Kubernetes deployment
+- Secrets scanning with Gitleaks
 
 ---
 
@@ -297,5 +299,25 @@ This project is intended for educational and authorized cybersecurity learning p
 
 ## Musa Chuene
 
-- GitHub: https://github.com/musechuene-commits
-- LinkedIn: https://linkedin.com/in/musa-chuene-57a4461a8
+- 💼 IT Support | Cybersecurity | DevSecOps Enthusiast
+- 🔗 GitHub: https://github.com/musechuene-commits
+- 🔗 LinkedIn: https://linkedin.com/in/musa-chuene-57a4461a8
+
+---
+
+# ⚠️ Disclaimer
+
+This project was developed strictly for educational, research, and portfolio purposes.
+
+The application is intended to simulate phishing detection workflows commonly used in cybersecurity environments and should not be used maliciously.
+
+---
+
+# ⭐ Support
+
+If you found this project useful:
+
+- Star the repository
+- Fork the project
+- Share feedback
+- Connect on LinkedIn
